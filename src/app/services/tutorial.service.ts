@@ -34,4 +34,8 @@ export class TutorialService {
       return this.http.delete(baseUrl);
     }
 
+    findByTutorial(title:string){
+        return this.http.get(`${baseUrl}?title=${title}`);
+    }
+
 }
