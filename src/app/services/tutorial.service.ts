@@ -14,7 +14,11 @@ export class TutorialService {
       return this.http.get(baseUrl);
     }
 
-    // get(id){
-    //     return this.
-    // }
+    get(id:number){
+        return this.http.get(`${baseUrl}/${id}`);
+    }
+
+    create(data){
+
+    }
 }
