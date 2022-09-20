@@ -18,7 +18,8 @@ export class TutorialService {
         return this.http.get(`${baseUrl}/${id}`);
     }
 
-    create(data){
-
+    create(data:any){
+        return this.http.post(baseUrl,data);
     }
+
 }
