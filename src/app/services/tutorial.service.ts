@@ -30,4 +30,8 @@ export class TutorialService {
       return this.http.delete(`${baseUrl}/${id}`);
     }
 
+    deleteAll(){
+      return this.http.delete(baseUrl);
+    }
+
 }
