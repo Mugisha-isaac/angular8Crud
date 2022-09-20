@@ -22,4 +22,8 @@ export class TutorialService {
         return this.http.post(baseUrl,data);
     }
 
+    update(id:number,data:any){
+       return this.http.put(`${baseUrl}/${id}`,data);
+    }
+
 }
