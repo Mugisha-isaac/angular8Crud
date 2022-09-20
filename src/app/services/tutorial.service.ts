@@ -26,4 +26,8 @@ export class TutorialService {
        return this.http.put(`${baseUrl}/${id}`,data);
     }
 
+    delete(id:number){
+      return this.http.delete(`${baseUrl}/${id}`);
+    }
+
 }
