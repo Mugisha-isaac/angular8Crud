@@ -31,21 +31,39 @@ export class TutorialDetailsComponent implements OnInit {
         })
   }
 
-  updatePublished(status:string){
-       const data = {
-           title: this.currentTutorial.title,
-           description: this.currentTutorial.description,
-           published: status
-       };
 
-       this.tutorialService.update(this.currentTutorial.id,data).subscribe(response=>{
-        console.log(response);
+  updatePublished(status: boolean) {
+    const data = {
+      title: this.currentTutorial.title,
+      description: this.currentTutorial.description,
+      published: status
+    };
 
-        this.message = "The tutorial was updated successfully"
-       }, error=>{
-            console.log(error);
-       })
+    this.tutorialService.update(this.currentTutorial.id, data)
+      .subscribe(
+        response => {
+          this.currentTutorial.published = status;
+          console.log(response);
+        },
+        error => {
+          console.log(error);
+        });
   }
+
+
+
+  updateTutorial() {
+    this.tutorialService.update(this.currentTutorial.id, this.currentTutorial)
+      .subscribe(
+        response => {
+          console.log(response);
+          this.message = 'The tutorial was updated successfully!';
+        },
+        error => {
+          console.log(error);
+        });
+  }
+
 
   deleteTutorial(){
       this.tutorialService.delete(this.currentTutorial.id).subscribe(response=>{
