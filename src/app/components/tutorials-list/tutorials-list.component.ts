@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {TutorialService} from "src/app/services/tutorial.service";
+import { TutorialService } from 'src/app/services/tutorial.service';
 
 @Component({
   selector: 'app-tutorials-list',
@@ -9,11 +9,9 @@ import {TutorialService} from "src/app/services/tutorial.service";
 export class TutorialsListComponent implements OnInit {
 
   tutorials: any;
-  currentTutorial = null;
+  currentTutorial:any = null;
   currentIndex = -1;
-  title = "";
-
-
+  title = '';
 
   constructor(private tutorialService: TutorialService) { }
 
@@ -39,7 +37,7 @@ export class TutorialsListComponent implements OnInit {
     this.currentIndex = -1;
   }
 
-  setActiveTutorial(tutorial:any, index:any) {
+  setActiveTutorial(tutorial:any, index:number) {
     this.currentTutorial = tutorial;
     this.currentIndex = index;
   }
@@ -67,5 +65,4 @@ export class TutorialsListComponent implements OnInit {
           console.log(error);
         });
   }
-
 }
