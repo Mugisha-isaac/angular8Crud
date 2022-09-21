@@ -28,6 +28,20 @@
             <label><strong>Description</strong></label>
             {{currentTutorial.description}}
         </div>
+        <div>
+             <label><strong>Status:</strong></label>
+             {{currentTutorial.published ? "Published" : "Pending"}}
+        </div>
+
+        <a class="badge badge-warning" href="/tutorials/{{ currentTutorial.id }}">
+          Edit
+        </a>
       </div>
+
+      <div *ngIf="!currentTutorial">
+      <br/>
+      <p>Please click on a tutorial....</p>
+      </div>
+
     </div>
 </div>
