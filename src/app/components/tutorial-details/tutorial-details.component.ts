@@ -31,4 +31,20 @@ export class TutorialDetailsComponent implements OnInit {
         })
   }
 
+  updatePublished(status:string){
+       const data = {
+           title: this.currentTutorial.title,
+           description: this.currentTutorial.description,
+           published: status
+       };
+
+       this.tutorialService.update(this.currentTutorial.id,data).subscribe(response=>{
+        console.log(response);
+
+        this.message = "The tutorial was updated successfully"
+       }, error=>{
+            console.log(error);
+       })
+  }
+
 }
