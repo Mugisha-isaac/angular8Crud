@@ -9,6 +9,10 @@ import { TutorialsListComponent } from './components/tutorials-list/tutorials-li
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 
+// // importing styles
+
+// import bootstrap from "bootstrap";
+
 @NgModule({
   declarations: [
     AppComponent,
