@@ -18,46 +18,54 @@ export class TutorialsListComponent implements OnInit {
   constructor(private tutorialService: TutorialService) { }
 
   ngOnInit() {
-      this.retrieveTutorials();
+    this.retrieveTutorials();
   }
 
-
-  retrieveTutorials(){
-       this.tutorialService.getAll().subscribe(data=>{
-           this.tutorials = data;
-           console.log(data);
-       }, error=>{
-            console.log(error);
-       })
+  retrieveTutorials() {
+    this.tutorialService.getAll()
+      .subscribe(
+        data => {
+          this.tutorials = data;
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
   }
 
-  refreshList(){
+  refreshList() {
     this.retrieveTutorials();
     this.currentTutorial = null;
     this.currentIndex = -1;
   }
 
-  setActiveTutorial(tutorial:any,index:number){
+  setActiveTutorial(tutorial:any, index:any) {
     this.currentTutorial = tutorial;
     this.currentIndex = index;
   }
 
-  removeAllTutorials(){
-    this.tutorialService.deleteAll().subscribe(response=>{
-      console.log(response);
-      this.retrieveTutorials();
-    }, error=>{
-      console.log(error)
-    })
+  removeAllTutorials() {
+    this.tutorialService.deleteAll()
+      .subscribe(
+        response => {
+          console.log(response);
+          this.retrieveTutorials();
+        },
+        error => {
+          console.log(error);
+        });
   }
 
-  searchTitle(){
-    this.tutorialService.findByTitle(this.title).subscribe(data=>{
-      this.tutorials = data;
-      console.log(data);
-    }, error=>{
-         console.log(error)
-    })
+  searchTitle() {
+    this.tutorialService.findByTitle(this.title)
+      .subscribe(
+        data => {
+          this.tutorials = data;
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
   }
 
 }
